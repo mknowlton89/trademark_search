@@ -1,0 +1,26 @@
+* {
+    box-sizing: border-box;
+    background: #7429a0;
+    display:flex;
+    justify-content: center;
+  }
+
+  #submitBtn{
+    background-color: teal;
+    width: 250px;
+    font-size: 20px;
+    color: thistle;
+    border: 1px solid violet;
+    border-radius: 30px;
+    margin: 10px 40px 10px 0px;
+    padding: 10px 10px;
+  }
+ 
+  form.searchBar input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    width: 50%;
+    background: #f1f1f1;
+
+  }
