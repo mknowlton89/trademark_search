@@ -11,14 +11,26 @@
  * Last Modified: 03/12/2021 Egon
  * add variables for traversing the DOM and api credentials for trademark
  */
-var tableBody = document.getElementById('repo-table');
-var fetchButton = document.getElementById('fetch-button');
-// var searchTM = "starbucks";
+var documentLocation = document.location.search;
+var searchPram =  documentLocation.split("?")[1];
+//getting elements
+var TMIdeaTakenEL = $("#ideaTaken");
+var TMTakeninfoEL  = $("#takeninfo");
+var DMGetDomainsEL = $('#getDomain');
+var DMwhoIsinfoEL  = $('#whoIsinfo');
+
+//var fetchButton = document.getElementById('fetch-button');
+//api Key's
 var uspToKey = "a28485e035mshea53364c530bf58p1f6a19jsn9a5ad2a4ac17";
-var url_string = window.location.href; //result.html
-var url = new URL(url_string);
-var searchPram = url.searchParams.get("search");
-$("searchInput").val =searchPram;
+var domainKey = "at_20p8HWePpxdOdgfSS2c42tVKGNMRB";
+
+//By defualt hide all element and it will enabled based on condition);
+$('#ideaTaken').hide();
+$('#takeninfo').hide();
+$('#getDomain').hide();
+$('#whoIsinfo').hide();
+console.log(searchPram);
+//$("searchInput").val =searchPram;
 
  
 /**Decalared Function
@@ -28,7 +40,7 @@ $("searchInput").val =searchPram;
  function gettrademMarkApi() {
    // fetch request gettrademMarkApi
   // console.log(requestUrl);
-   fetch("https://uspto-trademark.p.rapidapi.com/v1/trademarkAvailable/" + searchEL +"", {
+   fetch("https://uspto-trademark.p.rapidapi.com/v1/trademarkAvailable/" +  searchPram +"", {
      "method": "GET",
      "headers": {
        "x-rapidapi-key": ""+ uspToKey + "",
@@ -40,12 +52,42 @@ $("searchInput").val =searchPram;
        return response.json();
      })
      .then(function (data) {
-       
+      if (data[0].available === "yes") {
+
+      //  $('#ideaTaken').show();
+        //$('#takeninfo').show();
+
+        isDomainAvailable();
+    }
        console.log(data)
  
      });
  }
  
+
+ function isDomainAvailable() {
+
+  //queryInputString = queryInput.replace(/%20/g, "");
+
+  var requestUrl = 'https://domain-availability.whoisxmlapi.com/api/v1?apiKey='+ domainKey  + '&domainName=' +  searchPram + '.com&credits=DA';
+
+  fetch(requestUrl)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+       if (data.DomainInfo.domainAvailability === "AVAILABLE") {
+          $('#getDomain').show();
+          $('#whoIsinfo').hide();
+         $("#getDomain").append($("<li>").text(data.DomainInfo.domainName));
+           console.log( data.DomainInfo.domainName);
+
+         // isDomainAvailable();
+      }
+
+      });
+}
+
  
  gettrademMarkApi();
  
