@@ -61,12 +61,12 @@ console.log(searchPram);
        {
              $('#ideaTaken').show();
              $("#ul-idea-taken").append($("<li>").text("Trademark for " +  searchPram  + " availability is "  + data[0].available));
-             $('#takeninfo').show();
-             $("#ul-taken-info").append($("<li>").text("Trademark taken by  Eloy Gonzalez"));
+            // $('#takeninfo').show();
+            // $("#ul-taken-info").append($("<li>").text("Trademark taken by  Eloy Gonzalez"));
        }
 
        console.log(data)
- 
+       domainNotAvailable();
      });
  }
  
@@ -83,13 +83,39 @@ console.log(searchPram);
           $('#whoIsinfo').hide();
          $("#ul-get-domnain").append($("<li>").text("Domanin is available. " + data.DomainInfo.domainName));
            console.log( data.DomainInfo.domainName);
+                  // isDomainAvailable();
+      }
+      else
+      {
 
-         // isDomainAvailable();
+        domainNotAvailable();
       }
 
       });
 }
 
- 
+function domainNotAvailable() {
+  var requestUrl = 'https://api.hunter.io/v2/domain-search?domain=' + searchPram +'.com&api_key=26a2165679ec1861826dfff2c09beacaca1785a2';
+
+  fetch(requestUrl)
+      .then(function (response) {
+          return response.json();
+      })
+      .then(function (data) {
+
+           console.log( data.data);
+           $('#getDomain').hide();
+           $('#whoIsinfo').show();
+           $("#ul-who-Is-info").append($("<li>").text("Qrganization: " + data.data.organization));
+           $("#ul-who-Is-info").append($("<li>").text("Located: " + data.data.country));
+           $("#ul-who-Is-info").append($("<li>").text("Domain: " + data.data.domain));
+         // isDomainAvailable();
+        /// https://help.opendatasoft.com/apis/ods-search-v1/#security
+
+      });
+}
+
+//call function
+
  gettrademMarkApi();
  
