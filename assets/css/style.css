@@ -7,6 +7,7 @@
 /* BODY CONTENT STYLING */
 body {
 	text-align: center;
+    background-color:#e02929;
 }
 .wrapper {
 	width: 1170px;
@@ -75,7 +76,7 @@ header {
 }
 
 
-.searchButton {
+.searchBtn {
     color: #e02929;
     float: right;
     width: 40px;
