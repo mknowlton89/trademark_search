@@ -11,3 +11,28 @@
  * Last Modified: 03/12/2021 Egon
  * started script.js file
  */
+
+// DOM Variables
+const searchQuery = $('#searchInput');
+
+
+
+// JS Variables
+const redirectUrl = "./results.html?";
+
+
+// Function Definitions
+function redirectUser(event) {
+  event.preventDefault();
+
+  console.log(searchQuery.val());
+
+  document.location.replace(redirectUrl + searchQuery.val());
+
+}
+
+
+// Event Listeners
+$('#submitBtn').on("click", redirectUser);
+
+// Function Calls
