@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/results.css" />
+    <title>Document</title>
+  </head>
+  <div class="topnav">
+    <!-- Logo -- Align to the left--->
+
+    <img
+      src="smiley.gif"
+      alt="logo"
+      width="42"
+      height="42"
+      style="float: left"
+    />
+
+    <!-- Search Bar - to be placed in a row with Image -->
+    <input type="text" placeholder="Search.." />
+    <button class="searchBtn">...</button>
+  </div>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+      >&times;</a
+    >
+    <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+      >&#9776; open</span>
+
+<!--                              CSS for Side Navigation                  -->
+
+<!-- .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;} -->
+
+     
+<!--                                 Script for Side Navigation                          -->
+  
+<!-- <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+        
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+        </script> -->
+  </div>
+  <br />
+  <br />
+
+  <!-- The Containers that contain the main two subjects -->
+  <!-- container 1 - Align to the left -->
+  <main>
+    <div id="container1">
+
+        <!--                                   CSS for Container 1              -->
+
+        <!-- * {
+            box-sizing: border-box;
+          }
+          
+          .box {
+            float: left;
+            width: 42.25%; 
+            padding: 50px; 
+          } -->
+    
+        <!-- If the Trademark is taken this should be yes  -- aligned and floating partially over "container-1" -->
+      <section id="ideaTaken">
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+            voluptas nostrum corporis facere, doloremque rerum voluptatem,
+            labore, nam quis aperiam fuga ut accusantium quaerat dolor nihil ea
+            eveniet nemo laboriosam!
+          </li>
+        </ul>
+      </section>
+   
+   
+      <!-- If the Trademark is NOT available - this should populate some information either the owner of the Domain or Trademark (to be decided) - This box should be floating over "id = Container 1"    -->
+      <section id="takeninfo">
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+            voluptas nostrum corporis facere, doloremque rerum voluptatem,
+            labore, nam quis aperiam fuga ut accusantium quaerat dolor nihil ea
+            eveniet nemo laboriosam!
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Container 2 - Align to the Right -->
+
+    <div id="container2">
+
+<!--                            CSS for "Container 2"                   -->
+
+
+        <!--                                   CSS for Floating Container 1              -->
+
+        <!-- * {
+            box-sizing: border-box;
+          }
+          
+          .box {
+            float: right;
+            width: 42.25%; 
+            padding: 50px; 
+          } -->
+
+        <!-- This is instructons on how to get the Domain - This box should be floating over the main box "id= Container 2" -->
+      <section id="getDomain">
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+            voluptas nostrum corporis facere, doloremque rerum voluptatem,
+            labore, nam quis aperiam fuga ut accusantium quaerat dolor nihil ea
+            eveniet nemo laboriosam!
+          </li>
+        </ul>
+      </section>
+
+      <!-- This is a container that will contain the WhoIs info - This box should be floating over the the main box "id= Container 2" -->
+      <section id="whoIsinfo">
+        <ul>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+            voluptas nostrum corporis facere, doloremque rerum voluptatem,
+            labore, nam quis aperiam fuga ut accusantium quaerat dolor nihil ea
+            eveniet nemo laboriosam!
+          </li>
+        </ul>
+      </section>
+    </div>
+
+    <!--  These are the bottons on the bottom of the Page for the Left and Right Corners     -->
+    
+    <button id="rightBtn"></button>
+    <button id="createBtn"></button>
+  </main>
+
+</html>
