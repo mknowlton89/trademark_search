@@ -51,14 +51,20 @@ console.log(searchPram);
        console.log('fetches from ', response);
        return response.json();
      })
-     .then(function (data) {
-      if (data[0].available === "yes") {
+     .then(function (data)
+    {
+      if (data[0].available === "yes")
+       {
+          isDomainAvailable() 
+       }
+       else
+       {
+             $('#ideaTaken').show();
+             $("#ul-idea-taken").append($("<li>").text("Trademark for " +  searchPram  + " availability is "  + data[0].available));
+             $('#takeninfo').show();
+             $("#ul-taken-info").append($("<li>").text("Trademark taken by  Eloy Gonzalez"));
+       }
 
-      //  $('#ideaTaken').show();
-        //$('#takeninfo').show();
-
-        isDomainAvailable();
-    }
        console.log(data)
  
      });
@@ -66,11 +72,7 @@ console.log(searchPram);
  
 
  function isDomainAvailable() {
-
-  //queryInputString = queryInput.replace(/%20/g, "");
-
   var requestUrl = 'https://domain-availability.whoisxmlapi.com/api/v1?apiKey='+ domainKey  + '&domainName=' +  searchPram + '.com&credits=DA';
-
   fetch(requestUrl)
       .then(function (response) {
           return response.json();
@@ -79,7 +81,7 @@ console.log(searchPram);
        if (data.DomainInfo.domainAvailability === "AVAILABLE") {
           $('#getDomain').show();
           $('#whoIsinfo').hide();
-         $("#getDomain").append($("<li>").text(data.DomainInfo.domainName));
+         $("#ul-get-domnain").append($("<li>").text("Domanin is available. " + data.DomainInfo.domainName));
            console.log( data.DomainInfo.domainName);
 
          // isDomainAvailable();
