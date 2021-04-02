@@ -11,7 +11,7 @@
  * Last Modified: 04/01/2021 Egon
  * add variables for traversing the DOM and api credentials for trademark
  */
-alert("test");
+
 var documentLocation = document.location.search;
 var searchPram =  documentLocation.split("?")[1];
 //getting elements
