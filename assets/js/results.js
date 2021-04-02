@@ -150,14 +150,45 @@ function DomainWhoIsinfo() {
 }
 
 
-document.getElementById("start-trademark").addEventListener("click", function() {
+document.getElementById("start-trademark").addEventListener("click", function () {
   window.open('https://www.uspto.gov/trademarks/apply/initial-application-forms', '_blank');
 });
 
-document.getElementById("buy-domain").addEventListener("click", function() {
+document.getElementById("buy-domain").addEventListener("click", function () {
   window.open('  https://www.godaddy.com/', '_blank');
 
 });
+
+$('#searchBtn').on('click', function () {
+
+  let queryInput = $('#queryInput');
+
+  console.log(queryInput.val());
+
+  redirectUrl = "./results.html" + "?" + queryInput.val();
+
+  // Pull local storage use JSON.parse
+  searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
+
+  console.log(searchHistory);
+
+  // If it's undefined, set up empty array
+  if (searchHistory === null) {
+    searchHistory = [];
+  }
+
+  console.log(searchHistory);
+
+  // Push into it
+  searchHistory.push(queryInput.val());
+
+  console.log(searchHistory);
+
+  // Set it to local storage (via stringify)
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
+  document.location.assign(redirectUrl);
+})
 //call function
 gettrademMarkApi();
 
