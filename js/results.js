@@ -23,16 +23,16 @@ var DMwhoIsinfoEL  = $('#whoIsinfo');
 //api Key's
 var uspToKey = "a28485e035mshea53364c530bf58p1f6a19jsn9a5ad2a4ac17";
 var domainKey = "at_20p8HWePpxdOdgfSS2c42tVKGNMRB";
+var domainNotAvailable = "at_LBBpNCI2SIGGWhUHrEjGJvHQIK7q6";
 
 //By defualt hide all element and it will enabled based on condition);
 $('#ideaTaken').hide();
 $('#takeninfo').hide();
 $('#getDomain').hide();
 $('#whoIsinfo').hide();
-console.log(searchPram);
+
 //$("searchInput").val =searchPram;
 
- 
 /**Decalared Function
  * Last Modified: 03/12/2021 Egon
  * add gettrademMarkAp function and return if searched name is been already registered or not.
@@ -48,7 +48,6 @@ console.log(searchPram);
      }
    })
      .then(function (response) {
-       console.log('fetches from ', response);
        return response.json();
      })
      .then(function (data)
@@ -60,17 +59,15 @@ console.log(searchPram);
        else
        {
              $('#ideaTaken').show();
-             $("#ul-idea-taken").append($("<li>").text("Trademark for " +  searchPram  + " availability is "  + data[0].available));
+             $("#ul-idea-taken").append($("<li>").text("Trademark for " +  searchPram  + " is not availability"));
+             DomainWhoIsinfo();
             // $('#takeninfo').show();
             // $("#ul-taken-info").append($("<li>").text("Trademark taken by  Eloy Gonzalez"));
        }
 
-       console.log(data)
-       domainNotAvailable();
      });
  }
  
-
  function isDomainAvailable() {
   var requestUrl = 'https://domain-availability.whoisxmlapi.com/api/v1?apiKey='+ domainKey  + '&domainName=' +  searchPram + '.com&credits=DA';
   fetch(requestUrl)
@@ -81,41 +78,38 @@ console.log(searchPram);
        if (data.DomainInfo.domainAvailability === "AVAILABLE") {
           $('#getDomain').show();
           $('#whoIsinfo').hide();
-         $("#ul-get-domnain").append($("<li>").text("Domanin is available. " + data.DomainInfo.domainName));
-           console.log( data.DomainInfo.domainName);
+          $("#ul-get-domnain").append($("<li>").text("Domanin is available. " + data.DomainInfo.domainName));
+          console.log( data);
                   // isDomainAvailable();
       }
       else
       {
-
-        domainNotAvailable();
+        DomainWhoIsinfo()
       }
 
       });
-}
+} 
 
-function domainNotAvailable() {
-  var requestUrl = 'https://api.hunter.io/v2/domain-search?domain=' + searchPram +'.com&api_key=26a2165679ec1861826dfff2c09beacaca1785a2';
-
+function DomainWhoIsinfo() {
+  var requestUrl = 'https://website-contacts.whoisxmlapi.com/api/v1?apiKey=' + domainNotAvailable + '&domainName=' +  searchPram + '.com';
   fetch(requestUrl)
       .then(function (response) {
           return response.json();
       })
       .then(function (data) {
 
-           console.log( data.data);
-           $('#getDomain').hide();
-           $('#whoIsinfo').show();
-           $("#ul-who-Is-info").append($("<li>").text("Qrganization: " + data.data.organization));
-           $("#ul-who-Is-info").append($("<li>").text("Located: " + data.data.country));
-           $("#ul-who-Is-info").append($("<li>").text("Domain: " + data.data.domain));
-         // isDomainAvailable();
-        /// https://help.opendatasoft.com/apis/ods-search-v1/#security
-
+        console.log( data);
+        $('#getDomain').hide();
+        $('#whoIsinfo').show();
+        $("#ul-who-Is-info").append($("<li>").text("Company Name: " + data.companyNames[0]));
+        $("#ul-who-Is-info").append($("<li>").text("Title: " +  data.meta.title.replace(/&amp;/g, "&")));
+        $("#ul-who-Is-info").append($("<li>").text("Description: " +  data.meta.description.replace(/&amp;/g, "&")));
+        $("#ul-who-Is-info").append($("<li>").text("Phone: " + data.companyNames[0]));
+        $("#ul-who-Is-info").append($("<li>").text("Located: " + data.postalAddresses[0]));
+        $("#ul-who-Is-info").append($("<li>").text("Domain: " + data.domainName));
       });
-}
+} 
 
 //call function
-
  gettrademMarkApi();
  
