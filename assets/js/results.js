@@ -19,12 +19,14 @@ var TMIdeaTakenEL = $("#ideaTaken");
 var TMTakeninfoEL = $("#takeninfo");
 var DMGetDomainsEL = $('#getDomain');
 var DMwhoIsinfoEL = $('#whoIsinfo');
+//var DMBBtnEL = $('#start-trademark');
+var DMBBtnEL = document.getElementById("start-trademark");
 
 //var fetchButton = document.getElementById('fetch-button');
 //api Key's
 var uspToKey = "a28485e035mshea53364c530bf58p1f6a19jsn9a5ad2a4ac17";
-var domainKey = "at_LBBpNCI2SIGGWhUHrEjGJvHQIK7q6";
-var domainNotAvailable = "at_LBBpNCI2SIGGWhUHrEjGJvHQIK7q6";
+var domainKey = "at_dvdglXk3z5EnThTPZGjM59oma9dZF";
+var domainNotAvailable = "at_dvdglXk3z5EnThTPZGjM59oma9dZF";
 
 //By defualt hide all element and it will enabled based on condition);
 $('#ideaTaken').hide();
@@ -113,13 +115,14 @@ function isDomainAvailable(istrademark) {
         $('#getDomain').show();
         $('#whoIsinfo').hide();
         $("#ul-get-domnain").append($("<li>").text("Success! The domain " + data.DomainInfo.domainName + " is available"));
-        console.log(data);
+        document.getElementById('buy-domain').style.visibility = '';
         // isDomainAvailable();
       }
       else {
         $('#getDomain').show();
         $('#whoIsinfo').show();
         $("#ul-get-domnain").append($("<li>").text("Sorry! The domain " + data.DomainInfo.domainName + " is not available"));
+        document.getElementById('buy-domain').style.visibility = 'hidden';
         DomainWhoIsinfo()
       }
 
@@ -146,6 +149,16 @@ function DomainWhoIsinfo() {
     });
 }
 
+
+document.getElementById("start-trademark").addEventListener("click", function() {
+  window.open('https://www.uspto.gov/trademarks/apply/initial-application-forms', '_blank');
+});
+
+document.getElementById("buy-domain").addEventListener("click", function() {
+  window.open('  https://www.godaddy.com/', '_blank');
+
+});
 //call function
 gettrademMarkApi();
+
 
