@@ -43,6 +43,7 @@ function gettrademMarkApi() {
   searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
   console.log(searchHistory);
+  console.log(searchHistory.length);
 
   // Create a div to hold the local storage
   const searchHistoryDiv = $("<div>");
