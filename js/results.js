@@ -44,28 +44,32 @@ function gettrademMarkApi() {
 
   console.log(searchHistory);
 
-  //  // Create a div to hold the local storage
-  //  const searchHistoryDiv = $("<div>");
+  // Create a div to hold the local storage
+  const searchHistoryDiv = $("<div>");
 
-  //  // Create a headline for the DIV
-  //  const searchHistoryH4 = $('<h4>').text("Search History");
+  // Create a headline for the DIV
+  const searchHistoryH3 = $('<h3>').text("Search History");
 
-  //  // Create an un-ordered list for the search history
-  //  const searchHistoryList = $('<ul>');
+  // Create a paragraph to list the number of searches someone has done
+  let numberOfSearches = $('<p>').text(searchHistory.length);
 
-  //  // Append everything to the page
-  //  $('#left-container').append(searchHistoryDiv);
-  //  searchHistoryDiv.append(searchHistoryH4);
-  //  searchHistoryDiv.append(searchHistoryList);
+  // Create an un-ordered list for the search history
+  const searchHistoryList = $('<ul>');
 
-  //  // Create a for-loop to build out the full search history
-  //  for (let i = 0; i < searchHistory.length; i++) {
-  //      // Get the item in the array, create a list element, and then give it text.
-  //      const searchHistoryListItem = $('<li>').text(searchHistory[i]);
+  // Append everything to the page
+  $('#mySidenav').append(searchHistoryDiv);
+  searchHistoryDiv.append(searchHistoryH3);
+  searchHistoryDiv.append(numberOfSearches);
+  searchHistoryDiv.append(searchHistoryList);
 
-  //      // Append the list item to the list.
-  //      searchHistoryList.append(searchHistoryListItem);
-  //  }
+  // Create a for-loop to build out the full search history
+  for (let i = 0; i < searchHistory.length; i++) {
+    // Get the item in the array, create a list element, and then give it text.
+    const searchHistoryListItem = $('<li>').text(searchHistory[i]);
+
+    // Append the list item to the list.
+    searchHistoryList.append(searchHistoryListItem);
+  }
 
   // fetch request gettrademMarkApi
   // console.log(requestUrl);
