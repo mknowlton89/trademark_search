@@ -11,6 +11,7 @@
  * Last Modified: 04/01/2021 Egon
  * add variables for traversing the DOM and api credentials for trademark
  */
+alert("test");
 var documentLocation = document.location.search;
 var searchPram =  documentLocation.split("?")[1];
 //getting elements
@@ -22,7 +23,7 @@ var DMwhoIsinfoEL  = $('#whoIsinfo');
 //var fetchButton = document.getElementById('fetch-button');
 //api Key's
 var uspToKey = "a28485e035mshea53364c530bf58p1f6a19jsn9a5ad2a4ac17";
-var domainKey = "at_20p8HWePpxdOdgfSS2c42tVKGNMRB";
+var domainKey = "at_LBBpNCI2SIGGWhUHrEjGJvHQIK7q6";
 var domainNotAvailable = "at_LBBpNCI2SIGGWhUHrEjGJvHQIK7q6";
 
 //By defualt hide all element and it will enabled based on condition);
@@ -54,13 +55,15 @@ $('#whoIsinfo').hide();
     {
       if (data[0].available === "yes")
        {
+          $('#ideaTaken').show();
+          $("#ul-idea-taken").append($("<li>").text("Success! The term \"" +  searchPram  + "\" hasn't been trademarked."));
           isDomainAvailable() 
        }
        else
        {
              $('#ideaTaken').show();
-             $("#ul-idea-taken").append($("<li>").text("Trademark for " +  searchPram  + " is not availability"));
-             DomainWhoIsinfo();
+             $("#ul-idea-taken").append($("<li>").text("Sorry! The term \"" +  searchPram  + "\" has already been trademarked."));
+             isDomainAvailable() 
             // $('#takeninfo').show();
             // $("#ul-taken-info").append($("<li>").text("Trademark taken by  Eloy Gonzalez"));
        }
@@ -68,22 +71,26 @@ $('#whoIsinfo').hide();
      });
  }
  
- function isDomainAvailable() {
+ function isDomainAvailable(istrademark) {
   var requestUrl = 'https://domain-availability.whoisxmlapi.com/api/v1?apiKey='+ domainKey  + '&domainName=' +  searchPram + '.com&credits=DA';
   fetch(requestUrl)
       .then(function (response) {
           return response.json();
       })
       .then(function (data) {
+        console.log( data);
        if (data.DomainInfo.domainAvailability === "AVAILABLE") {
           $('#getDomain').show();
           $('#whoIsinfo').hide();
-          $("#ul-get-domnain").append($("<li>").text("Domanin is available. " + data.DomainInfo.domainName));
+          $("#ul-get-domnain").append($("<li>").text("Success! The domain " + data.DomainInfo.domainName + " is available"));
           console.log( data);
-                  // isDomainAvailable();
+                           // isDomainAvailable();
       }
       else
       {
+        $('#getDomain').show();
+        $('#whoIsinfo').show();
+        $("#ul-get-domnain").append($("<li>").text("Sorry! The domain " + data.DomainInfo.domainName + " is not available"));
         DomainWhoIsinfo()
       }
 
