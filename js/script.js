@@ -27,7 +27,7 @@ function redirectUser(event) {
 
   console.log(searchQuery.val());
 
-  document.location.replace(redirectUrl + searchQuery.val());
+  document.location.assign(redirectUrl + searchQuery.val());
 
 }
 
