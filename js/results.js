@@ -8,7 +8,7 @@
 */
 
 /**Decalared Variables
- * Last Modified: 03/12/2021 Egon
+ * Last Modified: 04/01/2021 Egon
  * add variables for traversing the DOM and api credentials for trademark
  */
 var documentLocation = document.location.search;
