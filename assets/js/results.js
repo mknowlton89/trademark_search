@@ -14,6 +14,7 @@
 
 var documentLocation = document.location.search;
 var searchPram = documentLocation.split("?")[1];
+searchPram = searchPram.replace(/%20/g, "");
 //getting elements
 var TMIdeaTakenEL = $("#ideaTaken");
 var TMTakeninfoEL = $("#takeninfo");
@@ -145,12 +146,78 @@ function DomainWhoIsinfo() {
       console.log(data);
       $('#getDomain').hide();
       $('#whoIsinfo').show();
-      $("#ul-who-Is-info").append($("<li>").text("Company Name: " + data.companyNames[0]));
-      $("#ul-who-Is-info").append($("<li>").text("Title: " + data.meta.title.replace(/&amp;/g, "&")));
-      $("#ul-who-Is-info").append($("<li>").text("Description: " + data.meta.description.replace(/&amp;/g, "&")));
-      $("#ul-who-Is-info").append($("<li>").text("Phone: " + data.companyNames[0]));
-      $("#ul-who-Is-info").append($("<li>").text("Located: " + data.postalAddresses[0]));
-      $("#ul-who-Is-info").append($("<li>").text("Domain: " + data.domainName));
+      if(data.companyNames[0])
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Company Name: " + data.companyNames[0]));
+      }
+      else
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Company Name: -missing-"));
+      }
+
+      if(data.meta.title)
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Title: " + data.meta.title.replace(/&amp;/g, "&")));
+      }
+      else
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Title: -missing-"));
+      }
+
+      if(data.meta.description)
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Description: " + data.meta.description.replace(/&amp;/g, "&")));
+      }
+      else
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Description: -missing-"));
+      }
+    console.log(data.phones[0]);
+      if (data.phones[0])
+      {
+        if(data.phones[0].phoneNumber)
+        {
+          $("#ul-who-Is-info").append($("<li>").text("Phone: " + data.phones[0].phoneNumber));
+        }
+        else
+        {
+          $("#ul-who-Is-info").append($("<li>").text("Phone: -missing-"));
+        }
+      }
+      else 
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Phone: -missing-"));
+      }
+      if (data.postalAddresses)
+      {
+        if(data.postalAddresses[0])
+        {
+          $("#ul-who-Is-info").append($("<li>").text("Located: " + data.postalAddresses[0]));
+        }
+        else
+        {
+          $("#ul-who-Is-info").append($("<li>").text("Located: -missing-"));
+        }
+     }
+     else
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Located: -missing-"));
+      }
+      if (data.domainName)
+      {
+        if(data.domainName)
+        {
+          $("#ul-who-Is-info").append($("<li>").text("Domain: " + data.domainName));
+        }
+        else
+        {
+          $("#ul-who-Is-info").append($("<li>").text("Domain: -missing-"));
+        }
+     }
+     else
+      {
+        $("#ul-who-Is-info").append($("<li>").text("Domain: -missing-"));
+      }
     });
 }
 
