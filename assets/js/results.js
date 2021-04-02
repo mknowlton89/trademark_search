@@ -12,7 +12,9 @@
  * add variables for traversing the DOM and api credentials for trademark
  */
 var documentLocation = document.location.search;
-var searchPram =  documentLocation.split("?")[1];
+var searchPram = //documentLocation.split("?")[1];
+//clear issue with search space
+searchPram = searchPram.replace(/%20/g, " ");
 //getting elements
 var TMIdeaTakenEL = $("#ideaTaken");
 var TMTakeninfoEL  = $("#takeninfo");

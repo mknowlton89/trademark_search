@@ -8,9 +8,9 @@ If the trademark is available, we’ll query a domain API to check if the domain
 
 Additionally, if the trademark is available, we’ll display a link to the US Trademark Office to enable the visitor to start their application to obtain the trademark.
 
-![Portfolio Site](./TrademarkProject.png)
+![Portfolio Site](./assets/images/TrademarkProject.png)
 
 ## Deployed Site
 deployed site below:
 
-[Deployed Site](https://mknowlton89.github.io/Project-1/)
+[Deployed Site](https://mknowlton89.github.io/trademark_search/)
