@@ -1,0 +1,138 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* BODY CONTENT STYLING */
+body {
+  text-align: center;
+  background-image: url("../images/1616041683174.png");
+}
+.wrapper {
+  width: 1170px;
+  margin: 0 auto;
+}
+header {
+  height: 100px;
+  background: #1e1e24;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+}
+.logo {
+  width: 30%;
+  float: left;
+  line-height: 100px;
+}
+.logo a {
+  text-decoration: none;
+  font-size: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #f7ebe8;
+  letter-spacing: 5px;
+}
+
+/* BANNER CONTENT STYLING */
+.banner {
+  width: 100%;
+  height: 480px;
+  position: fixed;
+  top: 80px;
+  background-image: url(assets/images/1616041683174.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.banner h2 {
+  padding-top: 8%;
+  font-size: 40px;
+  font-family: 'Fredericka the Great', cursive;
+  text-transform: uppercase;
+  color: #f7ebe8;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* SEARCH BAR AND BUTTON STYLING  */
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ff9970;
+  height: 40px;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+.box:hover {
+  box-shadow: 0 0 24px rgba(112, 34, 53, 0.644),
+    0 0 24px rgba(44, 37, 37, 0.685);
+}
+
+.box:hover > input {
+  width: 240px;
+  padding: 0 6px;
+}
+
+.searchBtn {
+  color: #e02929;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  border: none;
+}
+
+.input {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #f7ebe8;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+.fas {
+  font-size: 30px;
+}
+
+/* BOTTOM SECTION STYLING */
+.content {
+  width: 100%;
+  position: relative;
+  top: 560px;
+  background: #444140;
+  height: 1500px;
+}
+.content h2 {
+  letter-spacing: 4px;
+  padding-top: 30px;
+  font-size: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin: 0;
+  color: #f7ebe8;
+}
+.content p {
+  padding: 2% 0px;
+  line-height: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #f7ebe8;
+}
+
+/* FOOTER CONTENT STYLING */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #1e1e24;
+  color: #f7ebe8;
+}
