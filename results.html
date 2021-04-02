@@ -28,6 +28,19 @@
   </header>
 
   <body>
+    <div class="box-area">
+      <header>
+        <div class="wrap">
+          <div class="logo">
+            <img
+              src="assets/images/Trademark_logo copy.png"
+              alt="Trademark Logo"
+              style="height: 100px"
+            />
+          </div>
+          <div>
+            <input class="searchbox" type="text" placeholder="Search.." />
+            <button class="searchBtn">Search</button>
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -45,19 +58,21 @@
   }
   </script>
 
-  </div>
+            <div>
 
-  <!-- The Containers that contain the main two subjects -->
-  <!-- container 1 - Align to the left -->
-  
-    <div>
+              <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+              
+              <script>
+              function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+              }
+              
+              function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+              }
+              </script>
 
-        <div class="parent"></div>
-        <section  class="child column" id="ideaTaken">
-          <h1>Trademark</h1>
-        <ul id = "ul-idea-taken">
-        </ul>
-      
+            </div>
 
       <!-- If the Trademark is NOT available - this should populate some information either the owner of the Domain or Trademark (to be decided) - This box should be floating over "id = Container 1"    -->
       <h2 id="takeninfo">Taken</h2>
@@ -68,7 +83,16 @@
       </section>
     </div>
 
-    <!-- Container 2 - Align to the Right -->
+                    <!-- If the Trademark is NOT available - this should populate some information either the owner of the Domain or Trademark (to be decided) - This box should be floating over "id = Container 1"    -->
+                    <h2 id="takeninfo">Taken</h2>
+                    <ul id = "ul-taken-info"></ul></ul>
+                  </section>
+                </div>
+                    <!-- Container 2 - Align to the Right -->
+                <section class="child column">
+              
+                    <h3 id="getDomain">Get Domain</h3>
+                    <ul id = "ul-get-domnain"></ul></ul>
 
     <section class="child column">
     
