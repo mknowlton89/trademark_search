@@ -1,5 +1,5 @@
 # Project-1
-This is the first project for Georgia Tech's Fullstack Bootcamp.
+This is the first project(Trademark Search) for Georgia Tech's Fullstack Bootcamp. 
 
 ## Description
 This is a website companies and entrepreneurs can visit to easily check if a slogan/mark is already trademarked or not.
