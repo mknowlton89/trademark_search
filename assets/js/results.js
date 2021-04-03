@@ -91,11 +91,13 @@ function gettrademMarkApi() {
       if (data[0].available === "yes") {
         $('#ideaTaken').show();
         $("#ul-idea-taken").append($("<li>").text("Success! The term \"" + searchPram + "\" hasn't been trademarked."));
+        document.getElementById('buy-domain').style.visibility = 'show';
         isDomainAvailable()
       }
       else {
         $('#ideaTaken').show();
         $("#ul-idea-taken").append($("<li>").text("Sorry! The term \"" + searchPram + "\" has already been trademarked."));
+        document.getElementById('buy-domain').style.visibility = 'hidden';
         isDomainAvailable()
         // $('#takeninfo').show();
         // $("#ul-taken-info").append($("<li>").text("Trademark taken by  Eloy Gonzalez"));
@@ -116,7 +118,7 @@ function isDomainAvailable(istrademark) {
         $('#getDomain').show();
         $('#whoIsinfo').hide();
         $("#ul-get-domnain").append($("<li>").text("Success! The domain " + data.DomainInfo.domainName + " is available"));
-        document.getElementById('buy-domain').style.visibility = '';
+        document.getElementById('buy-domain').style.visibility = 'show';
         // isDomainAvailable();
       }
       else {
