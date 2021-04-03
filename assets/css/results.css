@@ -48,16 +48,18 @@ body {
 }
 .parent {
   display: flex;
+  
 }
 .child {
   display: flex;
   flex-direction: column;
   flex: 2;
   border: 1px;
-  width: 900px;
-  height: -900px;
+  width: 800px;
+  height: 500px;
   border: black solid 3px;
   margin: 15px;
+  background-color: coral;
 }
 btn {
   width: 10px;
