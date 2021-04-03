@@ -26,8 +26,8 @@ var DMBBtnEL = document.getElementById("start-trademark");
 //var fetchButton = document.getElementById('fetch-button');
 //api Key's
 var uspToKey = "a28485e035mshea53364c530bf58p1f6a19jsn9a5ad2a4ac17";
-var domainKey = "at_dvdglXk3z5EnThTPZGjM59oma9dZF";
-var domainNotAvailable = "at_dvdglXk3z5EnThTPZGjM59oma9dZF";
+var domainKey = "at_LE1xLfVxdyH9NpCndBKcxKTwMP85e";
+var domainNotAvailable = "at_LE1xLfVxdyH9NpCndBKcxKTwMP85e";
 
 //By defualt hide all element and it will enabled based on condition);
 $('#ideaTaken').hide();
@@ -96,13 +96,13 @@ function gettrademMarkApi() {
       if (data[0].available === "yes") {
         $('#ideaTaken').show();
         $("#ul-idea-taken").append($("<li>").text("Success! The term \"" + searchPram + "\" hasn't been trademarked."));
-        document.getElementById('buy-domain').style.visibility = 'show';
+        document.getElementById('start-trademark').style.visibility = 'show';
         isDomainAvailable()
       }
       else {
         $('#ideaTaken').show();
         $("#ul-idea-taken").append($("<li>").text("Sorry! The term \"" + searchPram + "\" has already been trademarked."));
-        document.getElementById('buy-domain').style.visibility = 'hidden';
+        document.getElementById('start-trademark').style.visibility = 'hidden';
         isDomainAvailable()
         // $('#takeninfo').show();
         // $("#ul-taken-info").append($("<li>").text("Trademark taken by  Eloy Gonzalez"));
@@ -138,48 +138,51 @@ function isDomainAvailable(istrademark) {
 }
 
 function DomainWhoIsinfo() {
-  var requestUrl = 'https://website-contacts.whoisxmlapi.com/api/v1?apiKey=' + domainNotAvailable + '&domainName=' + searchPram + '.com';
+  var requestUrl = 'https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=' + domainNotAvailable + '&domainName=' + searchPram + '.com&outputFormat=JSON';
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-
-      console.log(data);
+      city: "Round Rock"
+      country: "UNITED STATES"
+      countryCode: "US"
+      email: "ebedffafibhu@idp.email"
+      fax: ""
+      name: "Data protected, not disclosed"
+      organization: "Dell Inc."
+      postalCode: "78682"
+      rawText: "Registrant Name: Data protected, not disclosed↵Registrant Organisation: Dell Inc.↵Registrant Street: 1 Dell Way↵Registrant Street: RR1-33↵Registrant City: Round Rock↵Registrant State/Province: Texas↵Registrant Postal Code: 78682↵Registrant Country: US↵Registrant Phone: Data protected, not disclosed↵Registrant Fax: Data protected, not disclosed↵Registrant Email: ebedffafibhu@idp.email"
+      state: "Texas"
+      street1: "1 Dell Way↵RR1-33"
+      countryCode: "US"
+      telephone: ""
+      console.log(data.WhoisRecord.registrant.organization);
       $('#getDomain').hide();
       $('#whoIsinfo').show();
-      if(data.companyNames[0])
+      if(data.WhoisRecord.registrant.organization)
       {
-        $("#ul-who-Is-info").append($("<li>").text("Company Name: " + data.companyNames[0]));
+        $("#ul-who-Is-info").append($("<li>").text("Company Name: " + data.WhoisRecord.registrant.organization));
       }
       else
       {
         $("#ul-who-Is-info").append($("<li>").text("Company Name: -missing-"));
       }
 
-      if(data.meta.title)
+      if( data.WhoisRecord.registrant.rawText)
       {
-        $("#ul-who-Is-info").append($("<li>").text("Title: " + data.meta.title.replace(/&amp;/g, "&")));
-      }
-      else
-      {
-        $("#ul-who-Is-info").append($("<li>").text("Title: -missing-"));
-      }
-
-      if(data.meta.description)
-      {
-        $("#ul-who-Is-info").append($("<li>").text("Description: " + data.meta.description.replace(/&amp;/g, "&")));
+        $("#ul-who-Is-info").append($("<li>").text("Description: " + data.WhoisRecord.registrant.rawText.replace(/&amp;/g, "&")));
       }
       else
       {
         $("#ul-who-Is-info").append($("<li>").text("Description: -missing-"));
       }
-    console.log(data.phones[0]);
-      if (data.phones[0])
+
+      if (data.WhoisRecord.registrant.telephone)
       {
-        if(data.phones[0].phoneNumber)
+        if(data.WhoisRecord.registrant.telephone)
         {
-          $("#ul-who-Is-info").append($("<li>").text("Phone: " + data.phones[0].phoneNumber));
+          $("#ul-who-Is-info").append($("<li>").text("Phone: " +  data.WhoisRecord.registrant.telephone));
         }
         else
         {
@@ -190,11 +193,12 @@ function DomainWhoIsinfo() {
       {
         $("#ul-who-Is-info").append($("<li>").text("Phone: -missing-"));
       }
-      if (data.postalAddresses)
+      if (data.WhoisRecord.registrant.street1 )
       {
-        if(data.postalAddresses[0])
+        if(data.WhoisRecord.registrant.street1 )
         {
-          $("#ul-who-Is-info").append($("<li>").text("Located: " + data.postalAddresses[0]));
+          $("#ul-who-Is-info").append($("<li>").text("Located: " + data.WhoisRecord.registrant.street1 + 
+          ", " + data.WhoisRecord.registrant.state +  ", " + data.WhoisRecord.registrant.countryCode)); 
         }
         else
         {
@@ -205,11 +209,11 @@ function DomainWhoIsinfo() {
       {
         $("#ul-who-Is-info").append($("<li>").text("Located: -missing-"));
       }
-      if (data.domainName)
+      if (data.WhoisRecord.registrant.email)
       {
-        if(data.domainName)
+        if(data.WhoisRecord.registrant.email)
         {
-          $("#ul-who-Is-info").append($("<li>").text("Domain: " + data.domainName));
+          $("#ul-who-Is-info").append($("<li>").text("Email: " + data.WhoisRecord.registrant.email)); 
         }
         else
         {
