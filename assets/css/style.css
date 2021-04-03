@@ -8,10 +8,7 @@ body {
   text-align: center;
   background-image: url("../images/1616041683174.png");
 }
-.wrapper {
-  width: 1170px;
-  margin: 0 auto;
-}
+
 header {
   height: 100px;
   background: #1e1e24;

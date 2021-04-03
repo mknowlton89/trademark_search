@@ -59,6 +59,7 @@ function gettrademMarkApi() {
 
   // Create an un-ordered list for the search history
   const searchHistoryList = $('<ul>');
+  searchHistoryList.attr("id", "searchHistory");
 
   // Append everything to the page
   $('#mySidenav').append(searchHistoryDiv);
@@ -69,10 +70,14 @@ function gettrademMarkApi() {
   // Create a for-loop to build out the full search history
   for (let i = 0; i < searchHistory.length; i++) {
     // Get the item in the array, create a list element, and then give it text.
-    const searchHistoryListItem = $('<li>').text(searchHistory[i]);
+    let searchHistoryListItem = $('<li>');
+    let searchHistoryListLink = $('<a>').text(searchHistory[i]);
+
+    searchHistoryListLink.attr("href", "./results.html?" + searchHistory[i]);
 
     // Append the list item to the list.
     searchHistoryList.append(searchHistoryListItem);
+    searchHistoryListItem.append(searchHistoryListLink);
   }
 
   // fetch request gettrademMarkApi
@@ -219,14 +224,45 @@ function DomainWhoIsinfo() {
 }
 
 
-document.getElementById("start-trademark").addEventListener("click", function() {
+document.getElementById("start-trademark").addEventListener("click", function () {
   window.open('https://www.uspto.gov/trademarks/apply/initial-application-forms', '_blank');
 });
 
-document.getElementById("buy-domain").addEventListener("click", function() {
+document.getElementById("buy-domain").addEventListener("click", function () {
   window.open('  https://www.godaddy.com/', '_blank');
 
 });
+
+$('#searchBtn').on('click', function () {
+
+  let queryInput = $('#queryInput');
+
+  console.log(queryInput.val());
+
+  redirectUrl = "./results.html" + "?" + queryInput.val();
+
+  // Pull local storage use JSON.parse
+  searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
+
+  console.log(searchHistory);
+
+  // If it's undefined, set up empty array
+  if (searchHistory === null) {
+    searchHistory = [];
+  }
+
+  console.log(searchHistory);
+
+  // Push into it
+  searchHistory.push(queryInput.val());
+
+  console.log(searchHistory);
+
+  // Set it to local storage (via stringify)
+  localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
+  document.location.assign(redirectUrl);
+})
 //call function
 gettrademMarkApi();
 

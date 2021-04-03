@@ -10,24 +10,25 @@
   
 
   <header>
-  <div>
-    <!-- Logo -- Align to the left--->
-
-    <img
-      src="./assets/images/Trademark_logo copy.png"
-      alt="logo"
-      width="42"
-      height="42"
-      style="float: left"
-    />
-
-    <!-- Search Bar - to be placed in a row with Image -->
-    <input class="searchbox" type="text" placeholder="Search.." />
-    <button class="searchBtn">Search</button>
-  </div>
-  </header>
-
-  <body>
+<body>
+    <div class="box-area">
+      </div>
+      <header>
+      
+    
+        <div class="wrap">
+          <div class="logo">
+            <img
+              src="assets/images/Trademark_logo copy.png"
+              alt="Trademark Logo"
+              style="height: 100px"
+            />
+          </div>
+          <div>
+            <input class="searchbox" type="text" placeholder="Search.." />
+            <button class="searchBtn">Search</button>
+          
+            
 
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -45,37 +46,28 @@
   }
   </script>
 
-  </div>
-
-  <!-- The Containers that contain the main two subjects -->
-  <!-- container 1 - Align to the left -->
-  
-    <div>
-
-        <div class="parent"></div>
-        <section  class="child column" id="ideaTaken">
-          <h1>Trademark</h1>
-        <ul id = "ul-idea-taken">
-        </ul>
-      
-
-      <!-- If the Trademark is NOT available - this should populate some information either the owner of the Domain or Trademark (to be decided) - This box should be floating over "id = Container 1"    -->
-      <h2 id="takeninfo">Taken</h2>
-        <ul id = "ul-taken-info"></ul>
-        </ul>
-        <div>
-        <button class="btn" id="start-trademark">Start Application</button>
-      </section>
-    </div>
-
-    <!-- Container 2 - Align to the Right -->
-
+<div>
+  <div class="parent"></div>
+  <section  class="child column" id="ideaTaken">
+    <h1>Trademark</h1>
+  <ul id = "ul-idea-taken">
+  </ul>
+<!-- If the Trademark is NOT available - this should populate some information either the owner of the Domain or Trademark (to be decided) - This box should be floating over "id = Container 1"    -->
+<h2 id="takeninfo">Taken</h2>
+  <ul id = "ul-taken-info"></ul>
+  </ul>
+  <div>
+  <button class="btn" id="start-trademark">Start Application</button>
+</section>
+</div>
     <section class="child column">
     
       <h3 id="getDomain">Get Domain</h3>
         <ul id = "ul-get-domnain"></ul>
         </ul>
+        <div>
         <button class="btn" id="buy-domain">Get Domain</button>
+        </div>
       <!-- This is a container that will contain the WhoIs info - This box should be floating over the the main box "id= Container 2" -->
       <section id="whoIsinfo">
           <h4>Who's Info</h4>
@@ -90,6 +82,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./assets/js/results.js"></script>
 
+    <footer> placement holder</footer>
 </body>
-<footer> placement holder</footer>
+
 </html>
