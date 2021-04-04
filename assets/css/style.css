@@ -42,7 +42,7 @@ header {
 .banner h2 {
   padding-top: 8%;
   font-size: 40px;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: "Fredericka the Great", cursive;
   text-transform: uppercase;
   color: #f7ebe8;
   display: flex;
@@ -107,7 +107,7 @@ header {
   position: relative;
   top: 560px;
   background: #444140;
-  height: 1500px;
+  height: 500px;
 }
 .content h2 {
   letter-spacing: 4px;
@@ -120,16 +120,31 @@ header {
 .content p {
   padding: 2% 0px;
   line-height: 30px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Bitter", serif;
+  font-size: 19px ;
   color: #f7ebe8;
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 /* FOOTER CONTENT STYLING */
 .footer {
   position: fixed;
+  align-items: center;
   left: 0;
   bottom: 0;
   width: 100%;
   background: #1e1e24;
   color: #f7ebe8;
+}
+
+.privacy {
+  line-height: 14px;
+  width: 1000px;
+  margin: 18px;
+  font-size: 10px;
+}
+
+#logo {
+  color: #e02929;
 }
