@@ -19,16 +19,16 @@
           <img src="assets/images/Trademark_logo copy.png" alt="Trademark Logo" style="height: 100px" />
         </div>
         <div>
-          <input id="queryInput" class="searchbox" type="text" placeholder="Search.." />
-          <button id="searchBtn" class="searchBtn">Search</button>
-        </div>
-        <div>
           <span style="font-size:30px;cursor:pointer;color:white;" onclick="openNav()">&#9776; History</span>
         </div>
   </header>
 
 
   <main>
+    <div class="searchDiv">
+      <input id="queryInput" class="searchbox" type="text" placeholder="Search.." />
+      <button id="searchBtn" class="searchBtn">Search</button>
+    </div>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     </div>
@@ -52,7 +52,7 @@
         <h2 id="takeninfo">Taken</h2>
         <ul id="ul-taken-info"></ul>
         </ul>
-        <div><button class="btn" id="start-trademark">Start Application</button></div>
+        <div><button style="background: url(assets/images/uspto_button.png" class="btn" id="start-trademark"></button></div>
       </section>
       <section class="single-box">
         <h3 id="getDomain">Get Domain</h3>

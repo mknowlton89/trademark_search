@@ -3,6 +3,9 @@ header {
   width: 100%;
   height: 120px;
 }
+ul {
+  list-style: none;
+}
 body {
   background-color: white;
   margin: 0;
@@ -73,14 +76,13 @@ main {
   margin: 15px;
   background-color: coral;
 }
-btn {
-  width: 10px;
-  height: 10px;
+.btn {
+  width: 90px;
+  height: 50px;
   text-align: center;
 }
-create {
-  background-color: seagreen;
-}
+
+.btn :hover{}
 
 .single-box {
   position: relative;
@@ -103,6 +105,10 @@ create {
   justify-content: center;
   /* align-items: center; */
   height: 50%;
+}
+
+.box-area {
+  padding: 10px;
 }
 
 footer {
