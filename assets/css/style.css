@@ -130,9 +130,21 @@ header {
 /* FOOTER CONTENT STYLING */
 .footer {
   position: fixed;
+  align-items: center;
   left: 0;
   bottom: 0;
   width: 100%;
   background: #1e1e24;
   color: #f7ebe8;
+}
+
+.privacy {
+  line-height: 14px;
+  width: 1000px;
+  margin: 18px;
+  font-size: 10px;
+}
+
+#logo {
+  color: #e02929;
 }
