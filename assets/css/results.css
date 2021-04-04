@@ -110,7 +110,16 @@ main {
 .box-area {
   padding: 10px;
 }
-
+.searchDiv {
+  width: 80%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.searchBtn {
+  height: fit-content;
+}
 footer {
   background-color: #444140;
   width: 100%;
