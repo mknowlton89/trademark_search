@@ -14,7 +14,8 @@
 
 var documentLocation = document.location.search;
 var searchPram = documentLocation.split("?")[1];
-searchPram = searchPram.replace(/%20/g, "");
+let formattedSearchPram = searchPram.replace(/%20/g, "");
+searchPram = searchPram.replace(/%20/g, " ");
 //getting elements
 var TMIdeaTakenEL = $("#ideaTaken");
 var TMTakeninfoEL = $("#takeninfo");
@@ -112,7 +113,8 @@ function gettrademMarkApi() {
 }
 
 function isDomainAvailable(istrademark) {
-  var requestUrl = 'https://domain-availability.whoisxmlapi.com/api/v1?apiKey=' + domainKey + '&domainName=' + searchPram + '.com&credits=DA';
+
+  var requestUrl = 'https://domain-availability.whoisxmlapi.com/api/v1?apiKey=' + domainKey + '&domainName=' + formattedSearchPram + '.com&credits=DA';
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -157,71 +159,55 @@ function DomainWhoIsinfo() {
       street1: "1 Dell Way↵RR1-33"
       countryCode: "US"
       telephone: ""
-      console.log(data.WhoisRecord.registrant.organization);
+      // console.log(data.WhoisRecord.registrant.organization);
       $('#getDomain').hide();
       $('#whoIsinfo').show();
-      if(data.WhoisRecord.registrant.organization)
-      {
+      if (data.WhoisRecord.registrant.organization) {
         $("#ul-who-Is-info").append($("<li>").text("Company Name: " + data.WhoisRecord.registrant.organization));
       }
-      else
-      {
+      else {
         $("#ul-who-Is-info").append($("<li>").text("Company Name: -missing-"));
       }
 
-      if( data.WhoisRecord.registrant.rawText)
-      {
+      if (data.WhoisRecord.registrant.rawText) {
         $("#ul-who-Is-info").append($("<li>").text("Description: " + data.WhoisRecord.registrant.rawText.replace(/&amp;/g, "&")));
       }
-      else
-      {
+      else {
         $("#ul-who-Is-info").append($("<li>").text("Description: -missing-"));
       }
 
-      if (data.WhoisRecord.registrant.telephone)
-      {
-        if(data.WhoisRecord.registrant.telephone)
-        {
-          $("#ul-who-Is-info").append($("<li>").text("Phone: " +  data.WhoisRecord.registrant.telephone));
+      if (data.WhoisRecord.registrant.telephone) {
+        if (data.WhoisRecord.registrant.telephone) {
+          $("#ul-who-Is-info").append($("<li>").text("Phone: " + data.WhoisRecord.registrant.telephone));
         }
-        else
-        {
+        else {
           $("#ul-who-Is-info").append($("<li>").text("Phone: -missing-"));
         }
       }
-      else 
-      {
+      else {
         $("#ul-who-Is-info").append($("<li>").text("Phone: -missing-"));
       }
-      if (data.WhoisRecord.registrant.street1 )
-      {
-        if(data.WhoisRecord.registrant.street1 )
-        {
-          $("#ul-who-Is-info").append($("<li>").text("Located: " + data.WhoisRecord.registrant.street1 + 
-          ", " + data.WhoisRecord.registrant.state +  ", " + data.WhoisRecord.registrant.countryCode)); 
+      if (data.WhoisRecord.registrant.street1) {
+        if (data.WhoisRecord.registrant.street1) {
+          $("#ul-who-Is-info").append($("<li>").text("Located: " + data.WhoisRecord.registrant.street1 +
+            ", " + data.WhoisRecord.registrant.state + ", " + data.WhoisRecord.registrant.countryCode));
         }
-        else
-        {
+        else {
           $("#ul-who-Is-info").append($("<li>").text("Located: -missing-"));
         }
-     }
-     else
-      {
+      }
+      else {
         $("#ul-who-Is-info").append($("<li>").text("Located: -missing-"));
       }
-      if (data.WhoisRecord.registrant.email)
-      {
-        if(data.WhoisRecord.registrant.email)
-        {
-          $("#ul-who-Is-info").append($("<li>").text("Email: " + data.WhoisRecord.registrant.email)); 
+      if (data.WhoisRecord.registrant.email) {
+        if (data.WhoisRecord.registrant.email) {
+          $("#ul-who-Is-info").append($("<li>").text("Email: " + data.WhoisRecord.registrant.email));
         }
-        else
-        {
+        else {
           $("#ul-who-Is-info").append($("<li>").text("Domain: -missing-"));
         }
-     }
-     else
-      {
+      }
+      else {
         $("#ul-who-Is-info").append($("<li>").text("Domain: -missing-"));
       }
     });
