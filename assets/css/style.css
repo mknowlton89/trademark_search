@@ -108,6 +108,7 @@ header {
   top: 560px;
   background: #444140;
   height: 500px;
+  padding: 30px;
 }
 .content h2 {
   letter-spacing: 4px;
@@ -145,4 +146,48 @@ header {
 
 #logo {
   color: #e02929;
+}
+
+#mobile-search {
+  display: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#mobileSearchInput {
+  width: 90%;
+    height: 40px;
+    margin-top: 33px;
+    border: none;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+
+#mobileSubmitBtn {
+  height: 40px;
+  width: 100px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  #mobile-search {
+    display: contents;
+  }
+
+  #desktop-search {
+    display: none;
+  }  
+}
+
+@media only screen and (min-width: 600px) {
+  #mobile-search {
+    display: none;
+  }
+
+  /* #desktop-search {
+    display: contents;
+  }   */
 }
